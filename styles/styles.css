@@ -1,0 +1,94 @@
+﻿/* Styles for Archit Jain Portfolio */
+:root{
+  --bg: #0b0b10;
+  --bg-elev: #141420;
+  --text: #e6e6f0;
+  --muted: #a2a2b8;
+  --accent-start: #7c4dff;
+  --accent-end: #00c2ff;
+  --border: #24243a;
+}
+:root.light{
+  --bg: #ffffff;
+  --bg-elev: #f6f7fb;
+  --text: #1b1b23;
+  --muted: #4b4b66;
+  --accent-start: #6a5cff;
+  --accent-end: #00a6ff;
+  --border: #e6e8f0;
+}
+@media (prefers-color-scheme: light){
+  :root:not(.dark){
+    --bg: #ffffff;
+    --bg-elev: #f6f7fb;
+    --text: #1b1b23;
+    --muted: #4b4b66;
+    --accent-start: #6a5cff;
+    --accent-end: #00a6ff;
+    --border: #e6e8f0;
+  }
+}
+*{box-sizing:border-box}
+html{color-scheme:dark light}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+img{max-width:100%;display:block}
+.container{width:min(1100px, 92%);margin-inline:auto}
+
+/* Accessibility */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:fixed;left:1rem;top:1rem;width:auto;height:auto;background:var(--bg-elev);color:var(--text);padding:.6rem 1rem;border-radius:.5rem;outline:3px solid #ffdf5d}
+:focus-visible{outline:3px solid #ffdf5d;outline-offset:2px;border-radius:.4rem}
+
+/* Header */
+.site-header{position:sticky;top:0;background:rgba(0,0,0,.4);backdrop-filter: blur(8px);z-index:10;border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem}
+.brand{font-weight:700;text-decoration:none;background: linear-gradient(135deg,var(--accent-start),var(--accent-end));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.2rem}
+.nav-links{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+.nav a{color:var(--text);text-decoration:none;opacity:.9}
+.nav a:hover{opacity:1}
+.theme-toggle{border:1px solid var(--border);background:var(--bg-elev);color:var(--text);padding:.4rem .6rem;border-radius:.5rem;cursor:pointer;margin-right:1rem}
+
+/* Hero */
+.hero{padding:clamp(3rem,6vw,6rem) 0;}
+.hero-content{display:grid;gap:1rem}
+.hero h1{font-size:clamp(2rem,6vw,3rem);margin:0}
+.subtitle{font-size:1.1rem;color:var(--muted)}
+.bio{max-width:70ch}
+.cta{display:flex;gap:.8rem;margin-top:.6rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1rem;border-radius:.6rem;border:1px solid var(--border);text-decoration:none;color:var(--text);background:var(--bg-elev)}
+.btn.primary{background:linear-gradient(135deg,var(--accent-start),var(--accent-end));color:white;border:0}
+.social{display:flex;gap:1rem;margin-top:.6rem}
+
+/* Sections */
+.section{padding:clamp(2rem,5vw,4rem) 0;content-visibility:auto;contain-intrinsic-size:0 500px}
+.section h2{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 1rem}
+
+/* Skills */
+.skills-list{display:flex;flex-wrap:wrap;gap:.6rem;padding:0;margin:0;list-style:none}
+.skills-list li{padding:.4rem .6rem;border-radius:.6rem;border:1px solid var(--border);background:var(--bg-elev)}
+
+/* Projects */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.card{border:1px solid var(--border);border-radius:.8rem;background:var(--bg-elev);padding:1rem;display:flex;flex-direction:column;gap:.5rem;transition:transform .2s ease, box-shadow .2s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.card h3{margin:0;font-size:1.1rem}
+.card p{margin:0;color:var(--muted)}
+.card .meta{font-size:.9rem;color:var(--muted)}
+.card a{color:var(--text)}
+.tag{display:inline-block;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;margin-right:.3rem;color:var(--muted);font-size:.8rem;background:color-mix(in oklab, var(--bg-elev), transparent 20%)}
+
+/* Education & Contact */
+.contact-list{list-style:none;padding:0;margin:0;display:grid;gap:.4rem}
+
+/* Footer */
+.site-footer{border-top:1px solid var(--border);padding:1rem 0;color:var(--muted)}
+
+/* Appear animations */
+.reveal{opacity:0;transform:translateY(8px);transition:opacity .5s ease, transform .5s ease}
+.reveal.in{opacity:1;transform:none}
