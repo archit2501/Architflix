@@ -13,21 +13,21 @@ interface Profile {
 const profiles: Profile[] = [
   {
     name: "Developer",
-    avatar: "/avatars/developer.jpg",
+    avatar: "/avatars/Developer.jpg",
     path: "/dashboard",
     description: "Explore my technical journey",
     color: "#6B7280"
   },
   {
     name: "Creator",
-    avatar: "/avatars/creator.jpg",
+    avatar: "/avatars/Creator.jpg",
     path: "/projects",
     description: "View my creative projects",
     color: "#EF4444"
   },
   {
     name: "Professional",
-    avatar: "/avatars/professional.jpg",
+    avatar: "/avatars/Professional.jpg",
     path: "/about",
     description: "Learn about my experience",
     color: "#06B6D4"
