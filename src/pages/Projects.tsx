@@ -10,7 +10,8 @@ const projects = [
     techStack: ["Python", "TensorFlow", "React", "Node.js"],
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
     category: "AI/ML",
-    rank: 1
+    rank: 1,
+    githubUrl: "https://github.com/archit2501/ai-outfit-recommender"
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ const projects = [
     techStack: ["Python", "OpenAI API", "NLP", "React"],
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=500&fit=crop",
     category: "AI/ML",
-    rank: 2
+    rank: 2,
+    githubUrl: "https://github.com/archit2501/ai-resume-shortlisting"
   },
   {
     id: 3,
@@ -28,7 +30,8 @@ const projects = [
     techStack: ["Node.js", "OpenAI API", "React", "MongoDB"],
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=500&fit=crop",
     category: "Web App",
-    rank: 3
+    rank: 3,
+    githubUrl: "https://github.com/archit2501/smart-blog-ai"
   }
 ];
 
@@ -60,13 +63,13 @@ const Projects: React.FC = () => {
             <div
               key={project.id}
               className="project-card"
-              onClick={() => navigate(`/project/${project.id}`)}
+              onClick={() => window.open(project.githubUrl, '_blank')}
             >
               <div className="rank-badge">#{project.rank}</div>
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
-                  <button className="view-btn">View Project</button>
+                  <button className="view-btn">View on GitHub</button>
                 </div>
               </div>
               <div className="project-info">
