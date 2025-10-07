@@ -46,8 +46,8 @@ const Dashboard: React.FC = () => {
       <div className="featured-banner">
         <div className="banner-background">
           <img 
-            src="https://media1.tenor.com/m/ck5FcTa9ha0AAAAC/waltwhite-breakingbad.gif" 
-            alt="Breaking Bad - Say My Name" 
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop&q=80" 
+            alt="AI Technology Background" 
             className="banner-gif"
             loading="eager"
           />
