@@ -44,6 +44,13 @@ const Dashboard: React.FC = () => {
 
       {/* Featured Banner */}
       <div className="featured-banner">
+        <div className="banner-background">
+          <img 
+            src="https://media.tenor.com/ck5FcTa9ha0AAAAC/waltwhite-breakingbad.gif" 
+            alt="Breaking Bad - Say My Name" 
+            className="banner-gif"
+          />
+        </div>
         <div className="banner-content">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
