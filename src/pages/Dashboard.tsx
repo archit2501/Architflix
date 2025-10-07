@@ -45,12 +45,15 @@ const Dashboard: React.FC = () => {
       {/* Featured Banner */}
       <div className="featured-banner">
         <div className="banner-background">
-          <img 
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop&q=80" 
-            alt="AI Technology Background" 
-            className="banner-gif"
-            loading="eager"
-          />
+          <video 
+            className="banner-video"
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+          >
+            <source src="https://cdn.pixabay.com/video/2023/11/16/188877-885988423_large.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="banner-content">
           <motion.div
