@@ -11,7 +11,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
     category: "AI/ML",
     rank: 1,
-    githubUrl: "https://github.com/archit2501/ai-outfit-recommender"
+    githubUrl: "https://github.com/archit2501/AI-wardrobe-stylist"
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=500&fit=crop",
     category: "AI/ML",
     rank: 2,
-    githubUrl: "https://github.com/archit2501/ai-resume-shortlisting"
+    githubUrl: "https://github.com/archit2501/resume-shortlisting-tool"
   },
   {
     id: 3,
