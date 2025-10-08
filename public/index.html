@@ -1,32 +1,133 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="ArchitFlix - Netflix-inspired portfolio of Archit Jain, Full Stack Developer & AI Automation Engineer" />
-    <meta name="author" content="Archit Jain" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="ArchitFlix - Archit Jain Portfolio" />
-    <meta property="og:description" content="Netflix-inspired portfolio showcasing Full Stack Development and AI Automation projects" />
-    <meta property="og:type" content="website" />
-    
-    <title>ArchitFlix - Archit Jain | Full Stack Developer & AI Engineer</title>
-    
-    <!-- Preconnect to external domains for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    
-    <!-- Optional: Add a favicon -->
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run ArchitFlix.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template for the React application.
-      The React app will be injected into the div with id="root" above.
-    -->
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Archit Jain — Full Stack Developer & AI Automation Engineer</title>
+  <meta name="description" content="Portfolio of Archit Jain, Full Stack Developer & AI Automation Engineer. Building scalable web apps and AI-powered solutions." />
+  <meta name="author" content="Archit Jain" />
+  <meta property="og:title" content="Archit Jain — Full Stack Developer & AI Automation Engineer" />
+  <meta property="og:description" content="Portfolio of Archit Jain, Full Stack Developer & AI Automation Engineer. Building scalable web apps and AI-powered solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_IN" />
+  <link rel="canonical" href="/" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="preload" as="style" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Archit Jain",
+    "jobTitle": "Full Stack Developer & AI Automation Engineer",
+    "email": "mailto:architjain2501@gmail.com",
+    "url": "https://github.com/archit2501",
+    "sameAs": [
+      "https://www.linkedin.com/in/architjain01/",
+      "https://github.com/archit2501"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Delhi",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#home">AJ</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="home" class="section hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <h1 id="hero-title">Archit Jain</h1>
+          <p class="subtitle">Full Stack Developer & AI Automation Engineer</p>
+          <p class="bio">I'm Archit Jain, a passionate B.Tech final year student at Amity University with a deep love for technology and innovation. My journey in web development and AI has been driven by curiosity and the desire to create solutions that make a difference. With expertise in modern web technologies and artificial intelligence, I specialize in building scalable web applications, AI-powered tools, and machine learning solutions. I'm always eager to take on new challenges and deliver exceptional results for my clients.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Contact Me</a>
+          </div>
+          <div class="social">
+            <a href="https://github.com/archit2501" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+            <a href="https://www.linkedin.com/in/architjain01/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="mailto:architjain2501@gmail.com" aria-label="Email">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">About</h2>
+        <p>Based in New Delhi, India, I build robust, scalable web apps and AI-powered solutions. I focus on clear UX, performance, and reliable delivery.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title">Skills</h2>
+        <ul class="skills-list">
+          <li>React.js</li>
+          <li>Node.js</li>
+          <li>JavaScript</li>
+          <li>HTML/CSS</li>
+          <li>MongoDB</li>
+          <li>Python</li>
+          <li>TensorFlow</li>
+          <li>OpenAI API</li>
+          <li>Natural Language Processing</li>
+          <li>Machine Learning</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title">Projects</h2>
+        <div id="project-grid" class="project-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="education" class="section" aria-labelledby="education-title">
+      <div class="container">
+        <h2 id="education-title">Education</h2>
+        <p>B.Tech CSE (Data Science), Amity University</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:architjain2501@gmail.com">architjain2501@gmail.com</a></li>
+          <li><strong>Location:</strong> New Delhi, India</li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/architjain01/" target="_blank" rel="noopener">/in/architjain01</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/archit2501" target="_blank" rel="noopener">@archit2501</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Archit Jain. MIT License.</p>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js" defer></script>
+</body>
 </html>
