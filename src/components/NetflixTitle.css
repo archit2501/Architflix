@@ -19,6 +19,8 @@
   transform: scale(0.8);
   animation: fadeIn 0.5s forwards ease-in;
   margin: 0;
+  padding: 20px;
+  text-align: center;
 }
 
 @keyframes fadeIn {
@@ -40,5 +42,44 @@
   100% {
     transform: scale(3);
     opacity: 0;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .netflix-logo-text {
+    font-size: 60px;
+    letter-spacing: 4px;
+    padding: 10px;
+  }
+
+  @keyframes zoomOut {
+    0%, 80% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .netflix-logo-text {
+    font-size: 48px;
+    letter-spacing: 2px;
+    padding: 10px;
+  }
+
+  @keyframes zoomOut {
+    0%, 80% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
   }
 }
