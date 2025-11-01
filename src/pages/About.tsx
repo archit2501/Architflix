@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaDownload, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import './About.css';
+import Navbar from '../components/Navbar';
 
 const About: React.FC = () => {
   const navigate = useNavigate();
@@ -17,20 +18,12 @@ const About: React.FC = () => {
 
   return (
     <div className="about-container">
-      <nav className="navbar">
-        <h1 className="logo" onClick={() => navigate('/dashboard')}>ARCHITFLIX</h1>
-        <div className="nav-links">
-          <span onClick={() => navigate('/dashboard')}>Home</span>
-          <span onClick={() => navigate('/projects')}>Projects</span>
-          <span onClick={() => navigate('/about')} className="active">About</span>
-          <span onClick={() => navigate('/contact')}>Contact</span>
-        </div>
-      </nav>
+      <Navbar />
 
       <div className="about-content">
         <div className="about-header">
           <h1 className="about-title">About Me</h1>
-          <p className="about-subtitle">Full Stack Developer & AI Automation Engineer</p>
+          <p className="about-subtitle">Full Stack Engineer @ F1jobs.io (NeuraScribe Inc)</p>
         </div>
 
         <div className="about-main">
@@ -99,9 +92,9 @@ const About: React.FC = () => {
           <div className="about-section">
             <h2>Education</h2>
             <div className="education-card">
-              <h3>B.Tech in Computer Science Engineering (Data Science)</h3>
-              <p className="institution">Amity University, Noida</p>
-              <p className="duration">2021 - 2025 (Expected)</p>
+              <h3>Bachelor of Technology - Computer Science (Data Science)</h3>
+              <p className="institution">Amity University, Uttar Pradesh</p>
+              <p className="duration">Sep 2022 - Apr 2026</p>
             </div>
           </div>
 

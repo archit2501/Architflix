@@ -1,76 +1,53 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import ProfileCard from '../components/ProfileCard';
+import blueImage from '../images/blue.png';
+import greyImage from '../images/grey.png';
+import redImage from '../images/red.png';
+import yellowImage from '../images/yellow.png';
 import './browse.css';
-
-interface Profile {
-  name: string;
-  avatar: string;
-  path: string;
-  description: string;
-  color: string;
-}
-
-const profiles: Profile[] = [
-  {
-    name: "Developer",
-    avatar: "/avatars/Developer.jpg",
-    path: "/dashboard",
-    description: "Explore my technical journey",
-    color: "#6B7280"
-  },
-  {
-    name: "Creator",
-    avatar: "/avatars/Creator.jpg",
-    path: "/projects",
-    description: "View my creative projects",
-    color: "#EF4444"
-  },
-  {
-    name: "Professional",
-    avatar: "/avatars/Professional.jpg",
-    path: "/about",
-    description: "Learn about my experience",
-    color: "#06B6D4"
-  },
-  {
-    name: "Innovator",
-    avatar: "/avatars/innovator.jpg",
-    path: "/contact",
-    description: "Get in touch",
-    color: "#F59E0B"
-  }
-];
 
 const Browse: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleProfileClick = (path: string) => {
-    navigate(path);
+  const profiles = [
+    {
+      name: "recruiter",
+      image: blueImage,
+      backgroundGif: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTZ5eWwwbjRpdWM1amxyd3VueHhteTVzajVjeGZtZGJ1dDc4MXMyNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/16u7Ifl2T4zYfQ932F/giphy.gif" // Dark storm clouds
+    },
+    {
+      name: "developer",
+      image: greyImage,
+      backgroundGif: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGNidDl5emZpejY2eGFxa2I4NW0zZGNpbWRlbnBrZ3N2dWhhbzM1MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TFPdmm3rdzeZ0kP3zG/giphy.gif" // Flickering neon lights
+    },
+    {
+      name: "stalker",
+      image: redImage,
+      backgroundGif: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc28yMjMyZmJ6eWtxbmNwdDV6cXk4dWZmcjFhZms2cXBjN2h5ZDJjeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QjZXUBUr89CkiWLPjL/giphy.gif" // Dark, abstract digital lights
+    },
+    {
+      name: "adventurer",
+      image: yellowImage,
+      backgroundGif: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxib24ycWo2cjlmazh0NGV5NTZ2Mzd2YWY0M2tvam9oYXBwYW1ocCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ERKMnDK6tkzJe8YVa3/giphy-downsized-large.gif" // Dark ocean waves at night
+    },
+  ];
+
+  const handleProfileClick = (profile: { name: string; image: string; backgroundGif: string }) => {
+    navigate(`/profile/${profile.name}`, { state: { profileImage: profile.image, backgroundGif: profile.backgroundGif } });
   };
 
   return (
     <div className="browse-container">
-      <div className="browse-header">
-        <h1 className="browse-title">Who's Watching?</h1>
-        <p className="browse-subtitle">Select a profile to explore ArchitFlix</p>
-      </div>
-      
-      <div className="profiles-grid">
+      <p className='who-is-watching'>Who's Watching?</p>
+      <div className="profiles">
         {profiles.map((profile, index) => (
-          <div
+          <ProfileCard
             key={index}
-            className="profile-card"
-            onClick={() => handleProfileClick(profile.path)}
-          >
-            <div className="profile-avatar">
-              <img src={profile.avatar} alt={profile.name} className="avatar-image" />
-              <div className="profile-overlay">
-                <span className="profile-icon">▶</span>
-              </div>
-            </div>
-            <h3 className="profile-name">{profile.name}</h3>
-            <p className="profile-description">{profile.description}</p>
-          </div>
+            name={profile.name}
+            image={profile.image}
+            onClick={() => handleProfileClick(profile)}
+          />
         ))}
       </div>
     </div>

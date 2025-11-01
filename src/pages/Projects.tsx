@@ -1,90 +1,102 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import './Projects.css';
+import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker, FaAngular, FaGithub, FaGitlab, FaGoogle, FaJava, FaJenkins, FaMicrosoft, FaPython, FaVuejs } from 'react-icons/fa';
+import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify, SiFirebase, SiTerraform, SiArgo } from 'react-icons/si';
+import { Project } from '../types';
+import { getProjects } from '../queries/getProjects';
+import { GrDeploy, GrKubernetes } from "react-icons/gr";
 
-const projects = [
-  {
-    id: 1,
-    title: "AI Outfit Recommender",
-    description: "An intelligent fashion recommendation system powered by machine learning. Analyzes user preferences, weather conditions, and occasions to suggest the perfect outfit combinations.",
-    techStack: ["Python", "TensorFlow", "React", "Node.js"],
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
-    category: "AI/ML",
-    rank: 1,
-    githubUrl: "https://github.com/archit2501/AI-wardrobe-stylist"
-  },
-  {
-    id: 2,
-    title: "AI Resume Shortlisting Tool",
-    description: "Automated resume screening system using NLP and machine learning to match candidates with job requirements, saving hours of manual review time.",
-    techStack: ["Python", "OpenAI API", "NLP", "React"],
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=500&fit=crop",
-    category: "AI/ML",
-    rank: 2,
-    githubUrl: "https://github.com/archit2501/resume-shortlisting-tool"
-  },
-  {
-    id: 3,
-    title: "Smart Blog AI",
-    description: "Intelligent blog content generation platform that helps creators produce engaging, SEO-optimized articles using advanced AI technology.",
-    techStack: ["Node.js", "OpenAI API", "React", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=500&fit=crop",
-    category: "Web App",
-    rank: 3,
-    githubUrl: "https://github.com/archit2501/smart-blog-ai"
-  }
-];
+const techIcons: { [key: string]: JSX.Element } = {
+  "ReactJS": <FaReact />,
+  "NodeJS": <FaNodeJs />,
+  "AWS": <FaAws />,
+  "PostgreSQL": <SiPostgresql />,
+  "MongoDB": <SiMongodb />,
+  "Ruby On Rails": <SiRubyonrails />,
+  "Material UI": <SiMaterialdesign />,
+  "HTML5": <SiHtml5 />,
+  "CSS3": <SiCss3 />,
+  "jQuery": <SiJquery />,
+  "AWS-ECS": <SiAwsamplify />,
+  'Cognito': <FaAws />,
+  'Lambda': <FaAws />,
+  'ECS': <FaAws />,
+  'Jenkins': <FaJenkins />,
+  'Docker': <FaDocker />,
+  'GraphQL': <FaDatabase />,
+  'CI/CD': <FaGitlab />,
+  'GitLab': <FaGitlab />,
+  'GitHub': <FaGithub />,
+  'Heroku': <GrDeploy />,
+  'Netlify': <GrDeploy />,
+  'Firebase': <SiFirebase />,
+  'GCP': <FaGoogle />,
+  'Azure': <FaMicrosoft />,
+  'Kubernetes': <GrKubernetes />,
+  'Terraform': <SiTerraform />,
+  'ArgoCD': <SiArgo />,
+  'Java': <FaJava />,
+  'Spring Boot': <FaJava />,
+  'Python': <FaPython />,
+  'Node.js': <FaNodeJs />,
+  'Express.js': <FaNodeJs />,
+  'Hibernate': <FaJava />,
+  'Maven': <FaJava />,
+  'Gradle': <FaJava />,
+  'JUnit': <FaJava />,
+  'Mockito': <FaJava />,
+  'Jest': <FaReact />,
+  'React': <FaReact />,
+  'Angular': <FaAngular />,
+  'Vue.js': <FaVuejs />,
+  'Next.js': <FaReact />,
+  'Gatsby': <FaReact />,
+  'Nuxt.js': <FaVuejs />,
+  'Redux': <FaReact />,
+  'Vuex': <FaVuejs />,
+  'Tailwind CSS': <SiCss3 />,
+  'Bootstrap': <SiCss3 />,
+  'JQuery': <SiJquery />,
+};
+
 
 const Projects: React.FC = () => {
-  const navigate = useNavigate();
+  const [projects, setProjects] = useState<Project[]>([])
+  
+  useEffect(() => { 
+    async function fetchProjects() {
+      const data = await getProjects();
+      setProjects(data);
+    }
+    
+    fetchProjects()
+  }, [])
+  
+  if (projects.length === 0) return <div>Loading...</div>;
 
   return (
     <div className="projects-container">
-      <nav className="navbar">
-        <h1 className="logo" onClick={() => navigate('/dashboard')}>ARCHITFLIX</h1>
-        <div className="nav-links">
-          <span onClick={() => navigate('/dashboard')}>Home</span>
-          <span onClick={() => navigate('/skills')}>Skills</span>
-          <span onClick={() => navigate('/about')}>About</span>
-          <span onClick={() => navigate('/contact')}>Contact</span>
-        </div>
-      </nav>
-
-      <div className="projects-content">
-        <div className="projects-header">
-          <h1 className="page-title">Top 3 Projects 🏆</h1>
-          <p className="page-subtitle">
-            Showcasing my best work in AI/ML and Full-Stack Development
-          </p>
-        </div>
-
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="project-card"
-              onClick={() => window.open(project.githubUrl, '_blank')}
-            >
-              <div className="rank-badge">#{project.rank}</div>
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-                <div className="project-overlay">
-                  <button className="view-btn">View on GitHub</button>
-                </div>
-              </div>
-              <div className="project-info">
-                <div className="category-tag">{project.category}</div>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="tech-stack">
-                  {project.techStack.map((tech, index) => (
-                    <span key={index} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="project-card"
+            style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}
+          >
+            <img src={project.image.url} alt={project.title} className="project-image" />
+            <div className="project-details">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="tech-used">
+                {project.techUsed.split(', ').map((tech, i) => (
+                  <span key={i} className="tech-badge">
+                    {techIcons[tech] || "🔧"} {tech}
+                  </span>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );
