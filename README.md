@@ -4,7 +4,7 @@ A Netflix-themed portfolio website showcasing my professional journey, projects,
 
 ## Live Demo
 
-Visit the live site: [Architflix](https://archit2501.github.io/Architflix)
+Visit the live site: [Architflix](https://architjain.me/)
 
 ## About Me
 
