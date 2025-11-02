@@ -60,7 +60,7 @@
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .netflix-logo-text {
-    font-size: 60px;
+    font-size: 90px;
     letter-spacing: 4px;
     padding: 10px;
     perspective: 600px;
@@ -84,7 +84,7 @@
 
 @media (max-width: 480px) {
   .netflix-logo-text {
-    font-size: 48px;
+    font-size: 75px;
     letter-spacing: 2px;
     padding: 10px;
     perspective: 500px;
@@ -109,7 +109,7 @@
 /* Very small mobile devices */
 @media (max-width: 375px) {
   .netflix-logo-text {
-    font-size: 40px;
+    font-size: 65px;
     letter-spacing: 1px;
     padding: 5px;
     perspective: 400px;
