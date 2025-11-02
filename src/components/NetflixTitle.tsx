@@ -4,8 +4,21 @@ import { useNavigate } from 'react-router-dom';
 
 const NetflixTitle = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const text = 'ARCHITFLIX';
+
+  useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleClick = (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
@@ -39,8 +52,13 @@ const NetflixTitle = () => {
           const totalLetters = text.length;
           const middleIndex = (totalLetters - 1) / 2;
           const offset = index - middleIndex;
-          const rotation = offset * 3; // Adjust curve intensity
-          const translateY = Math.abs(offset) * -2; // Adjust arc height
+
+          // Reduce curve intensity for mobile
+          const rotationIntensity = isMobile ? 2 : 3;
+          const heightIntensity = isMobile ? -1 : -2;
+
+          const rotation = offset * rotationIntensity;
+          const translateY = Math.abs(offset) * heightIntensity;
 
           return (
             <span

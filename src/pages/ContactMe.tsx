@@ -22,7 +22,9 @@ const ContactMe: React.FC = () => {
   return (
     <div className="contact-container">
       <div className="linkedin-badge-custom">
-        <img src={userData.profilePicture.url} alt="Archit Jain" className="badge-avatar" />
+        <div className="badge-image-container">
+          <img src={userData.profilePicture.url} alt="Archit Jain" className="badge-avatar" />
+        </div>
         <div className="badge-content">
           <h3 className="badge-name">{userData?.name}</h3>
           <p className="badge-title">{userData.title}</p>
