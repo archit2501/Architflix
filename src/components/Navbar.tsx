@@ -9,7 +9,9 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const profileImage = location.state?.profileImage || blueImage;
+  const logoText = 'ARCHIT JAIN';
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 80);
@@ -18,6 +20,17 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const toggleSidebar = () => {
@@ -33,7 +46,31 @@ const Navbar: React.FC = () => {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="navbar-left">
           <Link to="/" className="navbar-logo-text">
-            ARCHIT JAIN
+            {logoText.split('').map((letter, index) => {
+              const totalLetters = logoText.length;
+              const middleIndex = (totalLetters - 1) / 2;
+              const offset = index - middleIndex;
+
+              // Reduce curve intensity for navbar (more subtle than title)
+              const rotationIntensity = isMobile ? 1 : 1.5;
+              const heightIntensity = isMobile ? -0.3 : -0.5;
+
+              const rotation = offset * rotationIntensity;
+              const translateY = Math.abs(offset) * heightIntensity;
+
+              return (
+                <span
+                  key={index}
+                  className="navbar-curved-letter"
+                  style={{
+                    transform: `rotateY(${rotation}deg) translateY(${translateY}px)`,
+                    display: 'inline-block'
+                  }}
+                >
+                  {letter}
+                </span>
+              );
+            })}
           </Link>
           <ul className="navbar-links">
             <li><Link to="/browse">Home</Link></li>
@@ -60,7 +97,30 @@ const Navbar: React.FC = () => {
       {/* Sidebar (only visible on mobile) */}
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-logo-text">
-          ARCHIT JAIN
+          {logoText.split('').map((letter, index) => {
+            const totalLetters = logoText.length;
+            const middleIndex = (totalLetters - 1) / 2;
+            const offset = index - middleIndex;
+
+            const rotationIntensity = 1.5;
+            const heightIntensity = -0.4;
+
+            const rotation = offset * rotationIntensity;
+            const translateY = Math.abs(offset) * heightIntensity;
+
+            return (
+              <span
+                key={index}
+                className="navbar-curved-letter"
+                style={{
+                  transform: `rotateY(${rotation}deg) translateY(${translateY}px)`,
+                  display: 'inline-block'
+                }}
+              >
+                {letter}
+              </span>
+            );
+          })}
         </div>
         <ul>
           <li><Link to="/browse" onClick={closeSidebar}><FaHome /> Home</Link></li>
