@@ -20,6 +20,15 @@ const NetflixTitle = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Auto-trigger animation after 1.5 seconds
+  useEffect(() => {
+    const autoTrigger = setTimeout(() => {
+      setIsClicked(true);
+    }, 1500);
+
+    return () => clearTimeout(autoTrigger);
+  }, []);
+
   const handleClick = (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
     e.stopPropagation();
